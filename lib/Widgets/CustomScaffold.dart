@@ -19,7 +19,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           children: [
             Image.asset("assets/background.jpeg"),
             SizedBox(height: 20,),
-            widget.child
+            widget.child,
+            SizedBox(height: 20,),
+            Image.asset("assets/lower_background.jpg"),
           ],
         ),
       ),

@@ -1,3 +1,5 @@
+import 'package:bus_management/Screens/employee_details/employee_details_view.dart';
+import 'package:bus_management/Utils/NavigationUtil.dart';
 import 'package:bus_management/Widgets/CardItem.dart';
 import 'package:bus_management/Widgets/CustomScaffold.dart';
 import 'package:bus_management/values/theme.dart';
@@ -93,69 +95,74 @@ class _HomeState extends State<Home> {
                     style: TextStyle(fontWeight: FontWeight.w300),
                   ),showLoader: true,),
               CardItem("Trip Information", Container()),
-              CardItem(
-                  "Employee Details",
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 30,horizontal: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        new LinearPercentIndicator(
-                          animation: true,
-                          animationDuration: 1000,
-                          lineHeight: 10.0,
-                          leading: new Text(
-                            "Drivers",
-                            style: TextStyle(fontSize: 10),
+              GestureDetector(
+                onTap: (){
+                  NavigationUtil.Navigate(context, EmployeeDetails());
+                },
+                child: CardItem(
+                    "Employee Details",
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 30,horizontal: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          new LinearPercentIndicator(
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 10.0,
+                            leading: new Text(
+                              "Drivers",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            percent: 0.2,
+                            backgroundColor: EColors.themeGrey.withOpacity(0.5),
+                            center: Text(
+                              "20.0%",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: EColors.green,
                           ),
-                          percent: 0.2,
-                          backgroundColor: EColors.themeGrey.withOpacity(0.5),
-                          center: Text(
-                            "20.0%",
-                            style: TextStyle(fontSize: 10),
+                          new LinearPercentIndicator(
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 10.0,
+                            leading: new Text(
+                              "Conductors",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            percent: 0.2,
+                            backgroundColor: EColors.themeGrey.withOpacity(0.5),
+                            center: Text(
+                              "90.0%",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: EColors.green,
                           ),
-                          linearStrokeCap: LinearStrokeCap.roundAll,
-                          progressColor: EColors.green,
-                        ),
-                        new LinearPercentIndicator(
-                          animation: true,
-                          animationDuration: 1000,
-                          lineHeight: 10.0,
-                          leading: new Text(
-                            "Conductors",
-                            style: TextStyle(fontSize: 10),
+                          new LinearPercentIndicator(
+                            animation: true,
+                            animationDuration: 1000,
+                            lineHeight: 10.0,
+                            leading: new Text(
+                              "Ticket sellers",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                            percent: 0.2,
+                            backgroundColor: EColors.themeGrey.withOpacity(0.5),
+                            center: Text(
+                              "50.0%",style: TextStyle(
+                                fontSize: 10
+                            ),
+                            ),
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: EColors.green,
                           ),
-                          percent: 0.2,
-                          backgroundColor: EColors.themeGrey.withOpacity(0.5),
-                          center: Text(
-                            "90.0%",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                          linearStrokeCap: LinearStrokeCap.roundAll,
-                          progressColor: EColors.green,
-                        ),
-                        new LinearPercentIndicator(
-                          animation: true,
-                          animationDuration: 1000,
-                          lineHeight: 10.0,
-                          leading: new Text(
-                            "Ticket sellers",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                          percent: 0.2,
-                          backgroundColor: EColors.themeGrey.withOpacity(0.5),
-                          center: Text(
-                            "50.0%",style: TextStyle(
-                              fontSize: 10
-                          ),
-                          ),
-                          linearStrokeCap: LinearStrokeCap.roundAll,
-                          progressColor: EColors.green,
-                        ),
-                      ],
-                    ),
-                  )),
+                        ],
+                      ),
+                    )),
+              ),
               CardItem("Schedule", Container()),
             ],
           )
