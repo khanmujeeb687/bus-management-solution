@@ -13,7 +13,7 @@ class DarkRegular{
         cursorColor: EColors.themeMaroon,
         appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(
-                color: EColors.themeGrey
+                color: EColors.white
             ),color: EColors.themeMaroon,
             textTheme: TextTheme(
                 title: TextStyle(
@@ -34,6 +34,7 @@ class EColors{
   static final Color themeGrey=HexColor('#d1d2d3');
   static final Color themePink=HexColor('#8C7386');
   static final Color themeGreen=HexColor('#31cc5a');
+  static final Color green=Colors.greenAccent;
 
 
   static List<Color> colorPallet=[
