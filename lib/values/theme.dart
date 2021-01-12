@@ -9,7 +9,7 @@ class DarkRegular{
         hintColor: EColors.themeGrey,
         primaryColor: EColors.themePink,
         accentColor: EColors.themeGrey,
-        scaffoldBackgroundColor: EColors.themeBlack,
+        scaffoldBackgroundColor: EColors.white,
         cursorColor: EColors.themeMaroon,
         appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(

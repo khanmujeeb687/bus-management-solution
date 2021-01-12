@@ -1,3 +1,4 @@
+import 'package:bus_management/Widgets/CustomScaffold.dart';
 import 'package:flutter/material.dart';
 
 class DriverProfile extends StatefulWidget {
@@ -11,8 +12,8 @@ class _DriverProfileState extends State<DriverProfile> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-
+    return CustomScaffold(
+      child: Container(),
     );
   }
 }
