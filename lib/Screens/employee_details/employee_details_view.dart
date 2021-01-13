@@ -44,7 +44,7 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                     percent: EmployeeData.getDriversPercent(),
                     backgroundColor: EColors.themeGrey.withOpacity(0.5),
                     center: Text(
-                      "${EmployeeData.getDriversPercent().toStringAsFixed(2)}%",
+                      "${(EmployeeData.getDriversPercent()*100).toStringAsFixed(2)}%",
                       style: TextStyle(fontSize: 10),
                     ),
                     linearStrokeCap: LinearStrokeCap.roundAll,
@@ -64,7 +64,7 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                     percent: EmployeeData.getConductorsPercent(),
                     backgroundColor: EColors.themeGrey.withOpacity(0.5),
                     center: Text(
-                      "${EmployeeData.getConductorsPercent().toStringAsFixed(2)}%",
+                      "${(EmployeeData.getConductorsPercent()*100).toStringAsFixed(2)}%",
                       style: TextStyle(fontSize: 10),
                     ),
                     linearStrokeCap: LinearStrokeCap.roundAll,
@@ -84,7 +84,7 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                     percent: EmployeeData.getTicketSellersPercent(),
                     backgroundColor: EColors.themeGrey.withOpacity(0.5),
                     center: Text(
-                      "${EmployeeData.getTicketSellersPercent().toStringAsFixed(2)}%",style: TextStyle(
+                      "${(EmployeeData.getTicketSellersPercent()*100).toStringAsFixed(2)}%",style: TextStyle(
                         fontSize: 10
                     ),
                     ),

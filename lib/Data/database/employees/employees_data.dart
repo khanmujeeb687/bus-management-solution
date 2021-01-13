@@ -32,7 +32,7 @@ class EmployeeData{
  static int  countKeyword(type){
    int count=0;
    for(int i=0;i<data.length;i++){
-     if(data[i]==type){
+     if(data[i].type==type){
        count++;
      }
    }
@@ -40,17 +40,17 @@ class EmployeeData{
  }
 
  static double getDriversPercent(){
-   return ((countKeyword(EmployeeType.driver)/data.length)*100);
+   return ((countKeyword(EmployeeType.driver)/data.length));
  }
 
 
  static double getTicketSellersPercent(){
-   return ((countKeyword(EmployeeType.ticket_seller)/data.length)*100);
+   return ((countKeyword(EmployeeType.ticket_seller)/data.length));
  }
 
 
  static double getConductorsPercent(){
-   return ((countKeyword(EmployeeType.conductor)/data.length)*100);
+   return ((countKeyword(EmployeeType.conductor)/data.length));
  }
 
 

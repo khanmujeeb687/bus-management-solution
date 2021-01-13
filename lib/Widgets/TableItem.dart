@@ -3,6 +3,8 @@ import 'package:bus_management/Data/database/buses/bus_metatdata.dart';
 import 'package:bus_management/Data/database/employees/employee_metadata.dart';
 import 'package:bus_management/Data/database/routes/routes_metadata.dart';
 import 'package:bus_management/Screens/bus/BusFullDetails.dart';
+import 'package:bus_management/Screens/bus_stop/bus_stop_screen.dart';
+import 'package:bus_management/Screens/bus_stop/bus_stop_view.dart';
 import 'package:bus_management/Screens/driver_profile/driver_profile_view.dart';
 import 'package:bus_management/Screens/routes/route_details.dart';
 import 'package:bus_management/Utils/NavigationUtil.dart';
@@ -82,7 +84,7 @@ class _TableItemState extends State<TableItem> {
               );
             }else if(widget.busStopData!=null){
               return ListTile(
-                // onTap: ()=>NavigationUtil.Navigate(context, (widget.busStopData[index].)),
+                onTap: ()=>NavigationUtil.Navigate(context, BusStopFullDetails(widget.busStopData[index])),
                 title:  Text("${widget.busStopData[index].name}",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w300),),
                 subtitle:  Text("${widget.busStopData[index].description}",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w300),overflow: TextOverflow.ellipsis,),
                 trailing: Wrap(
