@@ -1,3 +1,4 @@
+import 'package:bus_management/Data/database/routes/routes_data.dart';
 import 'package:bus_management/Widgets/CustomScaffold.dart';
 import 'package:bus_management/Widgets/TableItem.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _ManageRouteState extends State<ManageRoute> {
   Widget build(BuildContext context) {
 
     return CustomScaffold(
-        child: TableItem('Routes',employeeData:[])
+        child: TableItem('Routes',routeData:RoutesData.data)
     );
   }
 
