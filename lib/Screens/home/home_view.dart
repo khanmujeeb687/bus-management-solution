@@ -1,4 +1,5 @@
 import 'package:bus_management/Data/database/employees/employees_data.dart';
+import 'package:bus_management/Screens/bus/bus_details_view.dart';
 import 'package:bus_management/Screens/employee_details/employee_details_view.dart';
 import 'package:bus_management/Screens/manage_routes/manage_routes.dart';
 import 'package:bus_management/Utils/NavigationUtil.dart';
@@ -88,9 +89,12 @@ class _HomeState extends State<Home> {
                 showLoader: true,
                 ),
               ),
-              CardItem(
-                "Check Bus Details",
-                Container(),
+              GestureDetector(
+                onTap:()=>NavigationUtil.Navigate(context, BusDetails()),
+                child: CardItem(
+                  "Check Bus Details",
+                  Container(),
+                ),
               ),
               CardItem(
                   "Bus Stop Details",

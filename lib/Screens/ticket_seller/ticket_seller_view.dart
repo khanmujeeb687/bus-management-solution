@@ -13,7 +13,7 @@ class _TicketSellerState extends State<TicketSeller> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      child: TableItem("Ticket Seller",EmployeeData.getTicketSeller()),
+      child: TableItem("Ticket Seller",employeeData:EmployeeData.getTicketSeller()),
     );
   }
 }
