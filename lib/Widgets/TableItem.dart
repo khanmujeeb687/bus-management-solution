@@ -1,3 +1,4 @@
+import 'package:bus_management/Data/database/bus_stop/bus_stop_metadata.dart';
 import 'package:bus_management/Data/database/buses/bus_metatdata.dart';
 import 'package:bus_management/Data/database/employees/employee_metadata.dart';
 import 'package:bus_management/Data/database/routes/routes_metadata.dart';
@@ -14,7 +15,8 @@ class TableItem extends StatefulWidget {
   List<Employee> employeeData;
   List<Bus> busData;
   List<Routes> routeData;
-  TableItem(this.title,{this.busData,this.employeeData,this.routeData});
+  List<BusStop> busStopData;
+  TableItem(this.title,{this.busData,this.employeeData,this.routeData,this.busStopData});
   @override
   _TableItemState createState() => _TableItemState();
 }
@@ -33,6 +35,9 @@ class _TableItemState extends State<TableItem> {
     }
     if(widget.employeeData!=null){
       listLength=widget.employeeData.length;
+    }
+    if(widget.busStopData!=null){
+      listLength=widget.busStopData.length;
     }
     // TODO: implement initState
     super.initState();
@@ -72,6 +77,16 @@ class _TableItemState extends State<TableItem> {
                 ),
                 trailing: Wrap(
                   children: List.generate(2, (i) => Text(widget.routeData[index].buses[i]+'\n',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: EColors.green),),),
+                ),
+                contentPadding: EdgeInsets.fromLTRB(50, 0, 50,0),
+              );
+            }else if(widget.busStopData!=null){
+              return ListTile(
+                // onTap: ()=>NavigationUtil.Navigate(context, (widget.busStopData[index].)),
+                title:  Text("${widget.busStopData[index].name}",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w300),),
+                subtitle:  Text("${widget.busStopData[index].description}",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w300),overflow: TextOverflow.ellipsis,),
+                trailing: Wrap(
+                  children: List.generate(2, (i) => Text(widget.busStopData[index].buses[i]+'\n',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: EColors.green),),),
                 ),
                 contentPadding: EdgeInsets.fromLTRB(50, 0, 50,0),
               );

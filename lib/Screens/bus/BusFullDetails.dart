@@ -21,6 +21,13 @@ class _BusFullDetailsState extends State<BusFullDetails> {
           fontSize: 26,
           fontWeight: FontWeight.bold
         ),),
+      Container(
+        margin: EdgeInsets.all(20),
+          child: Text(widget.bus.description,style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400
+          ),),
+        ),
         ...List.generate(widget.bus.routes.length, (index){
           return TimelineTile(
             alignment: TimelineAlign.manual,
@@ -32,7 +39,7 @@ class _BusFullDetailsState extends State<BusFullDetails> {
               height: 40,
               indicator: CircleAvatar(
                 backgroundColor: EColors.themePink,
-                child: Icon(Icons.check,color: EColors.white,),
+                child: Icon(Icons.location_on,color: EColors.white,),
                 radius: 50,
               ),
               drawGap: true,

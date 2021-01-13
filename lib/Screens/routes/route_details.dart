@@ -34,7 +34,7 @@ class _RouteDetailsState extends State<RouteDetails> {
               height: 40,
               indicator: CircleAvatar(
                 backgroundColor: EColors.themePink,
-                child: Icon(Icons.check,color: EColors.white,),
+                child: Icon(Icons.location_on,color: EColors.white,),
                 radius: 50,
               ),
               drawGap: true,

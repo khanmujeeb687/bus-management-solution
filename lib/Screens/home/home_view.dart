@@ -1,5 +1,6 @@
 import 'package:bus_management/Data/database/employees/employees_data.dart';
 import 'package:bus_management/Screens/bus/bus_details_view.dart';
+import 'package:bus_management/Screens/bus_stop/bus_stop_view.dart';
 import 'package:bus_management/Screens/employee_details/employee_details_view.dart';
 import 'package:bus_management/Screens/manage_routes/manage_routes.dart';
 import 'package:bus_management/Utils/NavigationUtil.dart';
@@ -96,13 +97,16 @@ class _HomeState extends State<Home> {
                   Container(),
                 ),
               ),
-              CardItem(
-                  "Bus Stop Details",
-                  Text(
-                    "See which bus arrives when",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w300),
-                  ),showLoader: true,),
+              GestureDetector(
+                onTap:()=>NavigationUtil.Navigate(context, BusStopScreen()),
+                child: CardItem(
+                    "Bus Stop Details",
+                    Text(
+                      "See which bus arrives when",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.w300),
+                    ),showLoader: true,),
+              ),
               CardItem("Trip Information", Container()),
               GestureDetector(
                 onTap: (){
