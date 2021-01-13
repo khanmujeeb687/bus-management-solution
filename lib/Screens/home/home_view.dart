@@ -1,4 +1,6 @@
+import 'package:bus_management/Data/database/employees/employees_data.dart';
 import 'package:bus_management/Screens/employee_details/employee_details_view.dart';
+import 'package:bus_management/Screens/manage_routes/manage_routes.dart';
 import 'package:bus_management/Utils/NavigationUtil.dart';
 import 'package:bus_management/Widgets/CardItem.dart';
 import 'package:bus_management/Widgets/CustomScaffold.dart';
@@ -31,57 +33,60 @@ class _HomeState extends State<Home> {
             shrinkWrap: true,
             physics: ScrollPhysics(),
             children: [
-              CardItem(
-                  "Manage Routes",
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Total Route in Map',
-                              style: TextStyle(
-                                  color: EColors.themeBlack,
-                                  fontWeight: FontWeight.w300),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              "10",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: EColors.green),
-                            )
-                          ],
+              GestureDetector(
+                onTap:()=>NavigationUtil.Navigate(context, ManageRoute()),
+                child: CardItem(
+                    "Manage Routes",
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Total Route in Map',
+                                style: TextStyle(
+                                    color: EColors.themeBlack,
+                                    fontWeight: FontWeight.w300),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                "10",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: EColors.green),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Total Buses Running',
-                              style: TextStyle(
-                                  color: EColors.themeBlack,
-                                  fontWeight: FontWeight.w300),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              "45",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: EColors.green),
-                            )
-                          ],
+                        SizedBox(
+                          width: 10,
                         ),
-                      ),
-                    ],
-                  ),
-              showLoader: true,
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Total Buses Running',
+                                style: TextStyle(
+                                    color: EColors.themeBlack,
+                                    fontWeight: FontWeight.w300),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                "45",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: EColors.green),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                showLoader: true,
+                ),
               ),
               CardItem(
                 "Check Bus Details",
@@ -115,10 +120,10 @@ class _HomeState extends State<Home> {
                               "Drivers",
                               style: TextStyle(fontSize: 10),
                             ),
-                            percent: 0.2,
+                            percent: EmployeeData.getDriversPercent(),
                             backgroundColor: EColors.themeGrey.withOpacity(0.5),
                             center: Text(
-                              "20.0%",
+                              "${EmployeeData.getDriversPercent().toStringAsFixed(2)}%",
                               style: TextStyle(fontSize: 10),
                             ),
                             linearStrokeCap: LinearStrokeCap.roundAll,
@@ -132,10 +137,10 @@ class _HomeState extends State<Home> {
                               "Conductors",
                               style: TextStyle(fontSize: 10),
                             ),
-                            percent: 0.2,
+                            percent: EmployeeData.getConductorsPercent(),
                             backgroundColor: EColors.themeGrey.withOpacity(0.5),
                             center: Text(
-                              "90.0%",
+                              "${EmployeeData.getConductorsPercent().toStringAsFixed(2)}%",
                               style: TextStyle(fontSize: 10),
                             ),
                             linearStrokeCap: LinearStrokeCap.roundAll,
@@ -149,10 +154,11 @@ class _HomeState extends State<Home> {
                               "Ticket sellers",
                               style: TextStyle(fontSize: 10),
                             ),
-                            percent: 0.2,
+                            percent: EmployeeData.getTicketSellersPercent(),
                             backgroundColor: EColors.themeGrey.withOpacity(0.5),
                             center: Text(
-                              "50.0%",style: TextStyle(
+                              "${EmployeeData.getTicketSellersPercent().toStringAsFixed(2)}%",
+                              style: TextStyle(
                                 fontSize: 10
                             ),
                             ),

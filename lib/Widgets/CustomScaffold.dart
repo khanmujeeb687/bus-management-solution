@@ -16,6 +16,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("assets/background.jpeg"),
             SizedBox(height: 20,),

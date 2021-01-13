@@ -1,3 +1,9 @@
+import 'package:bus_management/Data/database/employees/employees_data.dart';
+import 'package:bus_management/Screens/conductors/Conductors.dart';
+import 'package:bus_management/Screens/driver_profile/driver_profile_view.dart';
+import 'package:bus_management/Screens/drivers/drivers_view.dart';
+import 'package:bus_management/Screens/ticket_seller/ticket_seller_view.dart';
+import 'package:bus_management/Utils/NavigationUtil.dart';
 import 'package:bus_management/Widgets/CardItem.dart';
 import 'package:bus_management/Widgets/CustomScaffold.dart';
 import 'package:bus_management/values/theme.dart';
@@ -35,10 +41,10 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                       "Drivers",
                       style: TextStyle(fontSize: 15),
                     ),
-                    percent: 0.2,
+                    percent: EmployeeData.getDriversPercent(),
                     backgroundColor: EColors.themeGrey.withOpacity(0.5),
                     center: Text(
-                      "20.0%",
+                      "${EmployeeData.getDriversPercent().toStringAsFixed(2)}%",
                       style: TextStyle(fontSize: 10),
                     ),
                     linearStrokeCap: LinearStrokeCap.roundAll,
@@ -55,10 +61,10 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                       "Conductors",
                       style: TextStyle(fontSize: 15),
                     ),
-                    percent: 0.2,
+                    percent: EmployeeData.getConductorsPercent(),
                     backgroundColor: EColors.themeGrey.withOpacity(0.5),
                     center: Text(
-                      "90.0%",
+                      "${EmployeeData.getConductorsPercent().toStringAsFixed(2)}%",
                       style: TextStyle(fontSize: 10),
                     ),
                     linearStrokeCap: LinearStrokeCap.roundAll,
@@ -75,10 +81,10 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                       "Ticket sellers",
                       style: TextStyle(fontSize: 15),
                     ),
-                    percent: 0.2,
+                    percent: EmployeeData.getTicketSellersPercent(),
                     backgroundColor: EColors.themeGrey.withOpacity(0.5),
                     center: Text(
-                      "50.0%",style: TextStyle(
+                      "${EmployeeData.getTicketSellersPercent().toStringAsFixed(2)}%",style: TextStyle(
                         fontSize: 10
                     ),
                     ),
@@ -102,22 +108,30 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
             shrinkWrap: true,
             physics: ScrollPhysics(),
             children: [
-              CardItem(
-                "Drivers",
-                Container(),
+              GestureDetector(
+                onTap: ()=>NavigationUtil.Navigate(context, Drivers()),
+                child: CardItem(
+                  "Drivers",
+                  Container(),
+                ),
               ),
 
-              CardItem(
-                "Conductors",
-                Container()
-                ),
+              GestureDetector(
+                onTap: ()=>NavigationUtil.Navigate(context, Conductors()),
+                child: CardItem(
+                  "Conductors",
+                  Container()
+                  ),
+              ),
 
             ],
           ),
           Container(
             height:MediaQuery.of(context).size.width/2 ,
               width: MediaQuery.of(context).size.width/2,
-              child: CardItem('Ticket seller', Container()))
+              child: GestureDetector(
+                  onTap: ()=>NavigationUtil.Navigate(context, TicketSeller()),
+                  child: CardItem('Ticket seller', Container())))
         ],
       ),
     );
